@@ -7,12 +7,14 @@ import static util.MyLogger.*;
 public class SimpleListMainV2 {
 
     public static void main(String[] args) throws InterruptedException {
-        test(new BasicList());
+        // test(new BasicList());
+//        test(new SyncList());
+        test(new SyncProxyList(new BasicList()));
 
     }
 
     private static void test(SimpleList list) throws InterruptedException {
-        log(list.getClass().getSigners());
+        log(list.getClass().getSimpleName());
 
         Runnable addA = () -> {
             list.add("A");
