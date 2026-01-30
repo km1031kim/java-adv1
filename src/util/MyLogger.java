@@ -9,6 +9,6 @@ public abstract class MyLogger {
 
     public static void log(Object obj) {
         String time = LocalTime.now().format(formatter);
-        System.out.printf("%s [%9s] %s\n", time, Thread.currentThread().getName(), obj);
+        System.out.printf("%s [%9s] %s %s\n", time, Thread.currentThread().getName(), Thread.currentThread().getState(), obj);
     }
 }
