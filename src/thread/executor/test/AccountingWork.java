@@ -1,0 +1,21 @@
+package thread.executor.test;
+
+import util.MyLogger;
+import util.ThreadUtils;
+
+import java.util.concurrent.Callable;
+
+public class AccountingWork implements Callable<Boolean> {
+
+    private final String orderNo;
+
+    public AccountingWork(String orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    @Override
+    public Boolean call() throws Exception {
+        MyLogger.log("회계 시스템 업데이트 : " + orderNo);
+        ThreadUtils.sleep(1000);
+        return true;    }
+}
